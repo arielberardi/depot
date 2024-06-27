@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Products' do
-  let(:product) { create(:product) }
+  let!(:product) { create(:product) }
 
   describe 'GET /index' do
     before { get products_path }
@@ -45,10 +45,7 @@ RSpec.describe 'Products' do
       }
     end
 
-    before do
-      product
-      put product_path(id: product), params: { product: updated_product }
-    end
+    before { put product_path(id: product), params: { product: updated_product } }
 
     it { expect(response).to have_http_status(:redirect) }
   end
