@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :line_items
-  resources :carts
+  resources :line_items, only: %i[create]
+  resources :carts, only: %i[index]
   resources :products
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
