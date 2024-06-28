@@ -6,31 +6,31 @@ RSpec.describe '/products' do
   let!(:product) { create(:product) }
 
   describe 'GET /index' do
-    before { get products_url }
+    before { get products_path }
 
     it { expect(response).to be_successful }
   end
 
   describe 'GET /new' do
-    before { get new_product_url }
+    before { get new_product_path }
 
     it { expect(response).to be_successful }
   end
 
   describe 'POST /create' do
-    before { post products_url, params: { product: attributes_for(:product) } }
+    before { post products_path, params: { product: attributes_for(:product) } }
 
     it { expect(response).to have_http_status(:redirect) }
 
     it 'create a new product' do
       expect do
-        post products_url, params: { product: attributes_for(:product) }
+        post products_path, params: { product: attributes_for(:product) }
       end.to change(Product, :count).by(1)
     end
   end
 
   describe 'GET /edit' do
-    before { get edit_product_url(product) }
+    before { get edit_product_path(product) }
 
     it { expect(response).to be_successful }
   end
@@ -45,13 +45,13 @@ RSpec.describe '/products' do
       }
     end
 
-    before { put product_url(id: product), params: { product: updated_product } }
+    before { put product_path(id: product), params: { product: updated_product } }
 
     it { expect(response).to have_http_status(:redirect) }
   end
 
   describe 'DELETE /destroy' do
-    before { delete product_url(id: product) }
+    before { delete product_path(id: product) }
 
     it { expect(response).to have_http_status(:redirect) }
   end

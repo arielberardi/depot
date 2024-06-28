@@ -6,8 +6,8 @@ RSpec.describe '/carts' do
   describe 'GET /show' do
     let(:cart) { create(:cart) }
 
-    before { get cart_url(cart) }
+    before { get cart_path(cart) }
 
-    it { expect(reponse).to be_successful }
+    it { expect(response).to be_successful }
   end
 end
