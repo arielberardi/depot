@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   validates :title, uniqueness: true
   validates :image_url, allow_blank: true, format: {
     with: /\.(gif|jpg|jpeg|png)\z/i,
-    message: 'must be an URL for GIF, JPEG, or PNG image.'
+    message: I18n.t('product.errors.image_format')
   }
 
   private
@@ -18,7 +18,7 @@ class Product < ApplicationRecord
   def ensure_not_referenced_by_any_line_item
     return if line_items.empty?
 
-    errors.add(:base, 'Line items present')
+    errors.add(:base, I18n.t('product.errors.destroying_with_dependants'))
     throw :abort
   end
 end

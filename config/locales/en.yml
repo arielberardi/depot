@@ -28,4 +28,14 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  line_item:
+    notice:
+      created: "Line Item was created successfully"
+  product:
+    notice:
+      created: "Product was created successfully"
+      updated: "Product was updated successfully"
+      destroyed: "Product was destroyed successfully"
+    errors:
+      image_format: "must be an URL for GIF, JPEG, or PNG image."
+      destroying_with_dependants: "Line items present"
