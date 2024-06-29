@@ -53,14 +53,13 @@ en:
       created: "Product was created successfully"
       updated: "Product was updated successfully"
       destroyed: "Product was destroyed successfully"
-    errors:
-      image_format: "must be an URL for GIF, JPEG, or PNG image."
-      destroying_with_dependants: "Line items present"
   cart:
+    notice:
+      destroy: "Cart was successfully destroyed"
     title: "Your Pragmatic Cart"
     button:
       empty: "Empty cart"
-    errors:
+    error:
       invalid_cart: "Invalid cart"
   model:
     product:
@@ -69,3 +68,6 @@ en:
       image_url: "Image URL"
       price: "Price"
       plural: "Products"
+      error:
+        image_format: "must be an URL for GIF, JPEG, or PNG image."
+        destroying_with_dependants: "Line items present"

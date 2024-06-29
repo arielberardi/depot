@@ -10,4 +10,24 @@ RSpec.describe '/carts' do
 
     it { expect(response).to be_successful }
   end
+
+  describe 'DELETE /destroy' do
+    let(:product) { create(:product) }
+    let(:cart) { LineItem.last.cart }
+
+    before { post line_items_path, params: { product_id: product.id } }
+
+    it 'redirects to root page' do
+      delete cart_path(cart)
+      expect(response).to have_http_status(:redirect)
+    end
+
+    it { expect { delete cart_path(cart) }.to change(Cart, :count).by(-1) }
+
+    context 'when is not part of current session' do
+      before { create(:line_item) }
+
+      it { expect { delete cart_path(cart) }.not_to change(Cart, :count) }
+    end
+  end
 end

@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :line_items, only: %i[create]
-  resources :carts, only: %i[show]
+  resources :carts, only: %i[show destroy]
   resources :products
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
