@@ -6,9 +6,15 @@ RSpec.describe '/line_items' do
   describe 'POST /create' do
     let!(:product) { create(:product) }
 
-    it 'creates a new LineItem' do
+    it 'creates a new line item' do
       expect do
         post line_items_path, params: { product_id: product.id }
+      end.to change(LineItem, :count).by(1)
+    end
+
+    it 'creates a new line item using turbo stream' do
+      expect do
+        post line_items_path, params: { product_id: product.id }, as: :turbo_stream
       end.to change(LineItem, :count).by(1)
     end
 
