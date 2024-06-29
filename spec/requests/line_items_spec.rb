@@ -30,7 +30,7 @@ RSpec.describe '/line_items' do
 
     it 'redirects to the created line_item' do
       post line_items_path, params: { product_id: product.id }
-      expect(response).to redirect_to(cart_path(LineItem.last.cart))
+      expect(response).to redirect_to(cart_url(LineItem.last.cart))
     end
 
     context 'with invalid parameters' do

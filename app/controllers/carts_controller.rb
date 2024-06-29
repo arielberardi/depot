@@ -11,6 +11,6 @@ class CartsController < ApplicationController
 
   def invalid_cart
     logger.error "Attemp to access invalid cart #{params[:id]}"
-    redirect_to store_index_path, notice: I18n.t('cart.errors.invalid_cart')
+    redirect_to store_index_url, notice: I18n.t('cart.errors.invalid_cart')
   end
 end

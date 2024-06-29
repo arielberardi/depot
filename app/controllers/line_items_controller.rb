@@ -12,7 +12,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to cart_path(@line_item.cart), notice: I18n.t('line_item.notice.created') }
+        format.html { redirect_to cart_url(@line_item.cart), notice: I18n.t('line_item.notice.created') }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new, status: :unprocessable_entity }
