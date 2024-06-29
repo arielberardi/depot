@@ -61,6 +61,11 @@ en:
       empty: "Empty cart"
     error:
       invalid_cart: "Invalid cart"
+  store:
+    index:
+      title: "Your Pragmatic Catalog"
+    button:
+      add_to_cart: "Add to cart"
   model:
     product:
       title: "Title"
