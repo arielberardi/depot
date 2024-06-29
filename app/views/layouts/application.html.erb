@@ -16,7 +16,12 @@
     </header>
     <section class="flex">
       <nav class="bg-green-900 p-6">
-        <ul class="text-gray-300 leading-5">
+        <% if @cart && !@cart.line_items.empty? %>
+          <div id="cart" class="bg-white rounded p-2">
+            <%= render @cart %>
+          </div>
+        <% end %>
+        <ul class="text-gray-300 leading-8">
           <li><a href="/"><%= t('menu.home') %></a></li>
         </ul>
       </nav>

@@ -1,0 +1,6 @@
+<tr>
+  <td class="text-rigth"><%= line_item.quantity %></td>
+  <td>&times;</td>
+  <td><%= line_item.product.title %></td>
+  <td class="text-right font-bold"><%= number_to_currency(line_item.total_price) %></td>
+</tr>

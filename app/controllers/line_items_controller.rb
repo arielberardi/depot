@@ -11,7 +11,7 @@ class LineItemsController < ApplicationController
     @line_item = @cart.add_product(product)
 
     if @line_item.save
-      redirect_to cart_url(@line_item.cart)
+      redirect_to store_index_url
     else
       render :new, status: :unprocessable_entity
     end

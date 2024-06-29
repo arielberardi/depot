@@ -19,7 +19,7 @@ RSpec.describe '/carts' do
 
     it 'redirects to root page' do
       delete cart_path(cart)
-      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to(store_index_url)
     end
 
     it { expect { delete cart_path(cart) }.to change(Cart, :count).by(-1) }
