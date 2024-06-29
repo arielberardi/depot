@@ -1,8 +1,7 @@
 <%= form_with(model: product, class: "contents") do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
+      <h2><%= pluralize(product.errors.count, t('common.error')) %></h2>
       <ul>
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,27 +9,22 @@
       </ul>
     </div>
   <% end %>
-
   <div class="my-5">
-    <%= form.label :title %>
+    <%= form.label :title, t('model.product.title') %>
     <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
-
   <div class="my-5">
-    <%= form.label :description %>
+    <%= form.label :description, t('model.product.description') %>
     <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
-
   <div class="my-5">
-    <%= form.label :image_url %>
+    <%= form.label :image_url, , t('model.product.image_url') %>
     <%= form.text_field :image_url, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
-
   <div class="my-5">
-    <%= form.label :price %>
+    <%= form.label :price, t('model.product.price') %>
     <%= form.text_field :price, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
-
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>

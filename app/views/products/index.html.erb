@@ -4,7 +4,7 @@
   <% end %>
   <% content_for :title, "Products" %>
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Products</h1>
+    <h1 class="font-bold text-4xl"><%= t('model.product.plural') %></h1>
   </div>
   <table id="products" class="mx-auto">
     <tfoot>
@@ -30,9 +30,9 @@
           </td>
           <td class="px-3">
             <ul>
-              <li><%= link_to 'Show', product, class: 'hover:underline' %></li>
-              <li><%= link_to 'Edit', edit_product_path(product), class: 'hover:underline' %></li>
-              <li><%= link_to 'Destroy', product, class: 'hover:underline', data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %></li>
+              <li><%= link_to t('action.show'), product, class: 'hover:underline' %></li>
+              <li><%= link_to t('action.edit'), edit_product_path(product), class: 'hover:underline' %></li>
+              <li><%= link_to t('action.destroy'), product, class: 'hover:underline', data: { turbo_method: 'delete', turbo_confirm: t('action.confirmation') } %></li>
             </ul>
           </td>
         </tr>

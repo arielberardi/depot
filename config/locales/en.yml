@@ -28,10 +28,27 @@
 #       enabled: "ON"
 
 en:
+  menu:
+    home: "Home"
+  common:
+    error: "error"
+  action:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    create: "Create"
+    back: "Back"
+    confirmation: "Are you sure?"
   line_item:
     notice:
       created: "Line Item was created successfully"
   product:
+    action:
+      back: "Back to products"
+    new:
+      title: "New product"
+    edit:
+      title: "Editing product"
     notice:
       created: "Product was created successfully"
       updated: "Product was updated successfully"
@@ -40,5 +57,15 @@ en:
       image_format: "must be an URL for GIF, JPEG, or PNG image."
       destroying_with_dependants: "Line items present"
   cart:
+    title: "Your Pragmatic Cart"
+    button:
+      empty: "Empty cart"
     errors:
       invalid_cart: "Invalid cart"
+  model:
+    product:
+      title: "Title"
+      description: "Description"
+      image_url: "Image URL"
+      price: "Price"
+      plural: "Products"
