@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'MyString' }
-    password { '' }
+    name { Faker::Name.unique.name }
+    password { '123456' }
+    password_confirmation { '123456' }
   end
 end
