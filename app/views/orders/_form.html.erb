@@ -21,9 +21,18 @@
     <%= form.label :email, t('model.order.email') %>
     <%= form.text_field :email, class: "input-field" %>
   </div>
-  <div class="my-5">
-    <%= form.label :pay_type, t('model.order.pay_type') %>
-    <%= form.select :pay_type, Order.pay_types.keys, { prompt: t('order.form.pay_type_prompt')}, class: "input-field" %>
+  <div data-controller="payment">
+    <div class="my-5">
+      <%= form.label :pay_type, t('model.order.pay_type') %>
+      <%= form.select :pay_type,
+          Order.pay_types.keys,
+          { prompt: t('order.form.pay_type_prompt') },
+          class: "input-field",
+          data: { payment_target: 'selection', action: 'payments#showAdditionalFields' } %>
+    </div>
+    <%= render partial: 'check', locals: { form: form } %>
+    <%= render partial: 'cc', locals: { form: form } %>
+    <%= render partial: 'po', locals: { form: form } %>
   </div>
   <div class="inline">
     <%= form.submit t('order.form.submit'),

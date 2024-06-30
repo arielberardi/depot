@@ -72,6 +72,11 @@ en:
     form:
       pay_type_prompt: "Select a payment method"
       submit: "Place order"
+      expiration_date: "Expiration date"
+      credit_card_number: "Credit card number"
+      routing_number: "Routing number"
+      account_number: "Account number"
+      po_number: "Purchase Order number"
     notice:
       created: "Thanks for your order"
       updated: "Order was successfully updated"
