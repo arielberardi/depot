@@ -66,6 +66,17 @@ en:
       title: "Your Pragmatic Catalog"
     button:
       add_to_cart: "Add to cart"
+  order:
+    new:
+      title: "Please enter your details"
+    form:
+      pay_type_prompt: "Select a payment method"
+      submit: "Place order"
+    notice:
+      created: "Thanks for your order"
+      updated: "Order was successfully updated"
+      destroyed: "Order was successfully destroyed"
+      empty_cart: "Your cart is empty"
   model:
     product:
       title: "Title"
@@ -76,3 +87,8 @@ en:
       error:
         image_format: "must be an URL for GIF, JPEG, or PNG image."
         destroying_with_dependants: "Line items present"
+    order:
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      pay_type: "Payment Type"
