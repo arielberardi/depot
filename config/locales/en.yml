@@ -97,3 +97,9 @@ en:
       address: "Address"
       email: "Email"
       pay_type: "Payment Type"
+  mailer:
+    order:
+      received:
+        subject: "Pragmatic store order confirmation"
+      shipped:
+        subject: "Pragmatic store order shipped"

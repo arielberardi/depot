@@ -28,24 +28,24 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
 
-    respond_to do |format|
-      if @order.save
-        remove_cart
-        format.html { redirect_to store_index_url, notice: I18n.t('order.notice.created') }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @order.save
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+
+      OrderMailer.received(@order).deliver_later
+
+      redirect_to store_index_url, notice: I18n.t('order.notice.created')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: I18n.t('order.notice.updated') }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @order.update(order_params)
+      redirect_to order_url(@order), notice: I18n.t('order.notice.updated')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -53,9 +53,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: I18n.t('order.notice.destroyed') }
-    end
+    redirect_to orders_url, notice: I18n.t('order.notice.destroyed')
   end
 
   private
@@ -72,10 +70,5 @@ class OrdersController < ApplicationController
 
   def ensure_cart_is_not_empty
     redirect_to store_index_path, notice: I18n.t('order.notice.empty_cart') if @cart.line_items.empty?
-  end
-
-  def remove_cart
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
   end
 end
