@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :users
   resources :line_items, only: %i[create]
   resources :carts, only: %i[show destroy]
   resources :products

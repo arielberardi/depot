@@ -3,7 +3,7 @@
 class ChargeOrderJob < ApplicationJob
   queue_as :default
 
-  def perform(order, pay_type_params)
+  def perform(_order, _pay_type_params)
     OrderMailer.received(@order).deliver_later
 
     # Mock service
