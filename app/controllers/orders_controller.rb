@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
 
-      OrderMailer.received(@order).deliver_later
+      ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
 
       redirect_to store_index_url, notice: I18n.t('order.notice.created')
     else
@@ -66,6 +66,14 @@ class OrdersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def order_params
     params.require(:order).permit(:name, :address, :email, :pay_type)
+  end
+
+  def pay_type_params
+    case order_params[:pay_type]
+    when :credit_card then params.require(:order).permit(:credit_card_number, :expiration_date)
+    when :check then params.require(:order).permit(:routing_number, :account_number)
+    when :purchase_order then params.require(:order).permit(:po_number)
+    end
   end
 
   def ensure_cart_is_not_empty

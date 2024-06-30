@@ -50,6 +50,10 @@ RSpec.describe '/orders' do
         post orders_url, params: { order: valid_attributes }
         expect(response).to redirect_to(store_index_url)
       end
+
+      it 'queues a charge order job' do
+        expect { post orders_url, params: { order: valid_attributes } }.to enqueue_job(ChargeOrderJob)
+      end
     end
 
     context 'with invalid parameters' do
