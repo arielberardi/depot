@@ -5,6 +5,6 @@ FactoryBot.define do
     name { Faker::Name.name }
     address { Faker::Address.full_address }
     email { Faker::Internet.email }
-    pay_type { ['Check', 'Credit Card', 'Purchase order'].sample }
+    pay_type { Order.pay_types.keys.sample }
   end
 end

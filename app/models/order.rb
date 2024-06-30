@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
-  enum pay_type: {
-    'Check' => 0,
-    'Credit Card' => 1,
-    'Purchase order' => 2
-  }
+  enum pay_type: { check: 0, credit_card: 1, purchase_order: 2 }
 
   validates :name, :address, :email, presence: true
   validates :pay_type, inclusion: { in: pay_types.keys }
