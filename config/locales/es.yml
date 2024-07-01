@@ -3,6 +3,10 @@ es:
     currency:
       format:
         unit: "€"
+  activerecord:
+    errors:
+      messages:
+        blank: "no puede estar en blanco"
   menu:
     home: "Inicio"
   common:
