@@ -1,0 +1,85 @@
+es:
+  number:
+    currency:
+      format:
+        unit: "€"
+  menu:
+    home: "Inicio"
+  common:
+    error: "error"
+  action:
+    show: "Mostrar"
+    edit: "Editar"
+    destroy: "Destruir"
+    create: "Crear"
+    back: "Atrás"
+    confirmation: "¿Estás seguro?"
+  line_item:
+    notice:
+      created: "El artículo de línea fue creado con éxito"
+  product:
+    action:
+      back: "Volver a productos"
+    new:
+      title: "Nuevo producto"
+    edit:
+      title: "Editando producto"
+    notice:
+      created: "El producto fue creado con éxito"
+      updated: "El producto fue actualizado con éxito"
+      destroyed: "El producto fue destruido con éxito"
+  cart:
+    notice:
+      destroy: "El carrito fue destruido con éxito"
+    title: "Tu Carrito Pragmático"
+    button:
+      empty: "Vaciar carrito"
+    error:
+      invalid_cart: "Carrito inválido"
+  store:
+    index:
+      title: "Tu Catálogo Pragmático"
+    button:
+      add_to_cart: "Añadir al carrito"
+  order:
+    new:
+      title: "Por favor ingresa tus datos"
+    form:
+      pay_type_prompt: "Selecciona un método de pago"
+      submit: "Realizar pedido"
+      expiration_date: "Fecha de expiración"
+      credit_card_number: "Número de tarjeta de crédito"
+      routing_number: "Número de ruta"
+      account_number: "Número de cuenta"
+      po_number: "Número de orden de compra"
+    notice:
+      created: "Gracias por tu pedido"
+      updated: "El pedido fue actualizado con éxito"
+      destroyed: "El pedido fue destruido con éxito"
+      empty_cart: "Tu carrito está vacío"
+  user:
+    created:
+      noticed: "El usuario %{name} fue creado con éxito"
+      updated: "El usuario fue actualizado con éxito"
+      destroyed: "El usuario fue destruido con éxito"
+  model:
+    product:
+      title: "Título"
+      description: "Descripción"
+      image_url: "URL de la imagen"
+      price: "Precio"
+      plural: "Productos"
+      error:
+        image_format: "debe ser una URL para una imagen GIF, JPEG o PNG."
+        destroying_with_dependants: "Artículos de línea presentes"
+    order:
+      name: "Nombre"
+      address: "Dirección"
+      email: "Correo electrónico"
+      pay_type: "Tipo de pago"
+  mailer:
+    order:
+      received:
+        subject: "Confirmación de pedido de la tienda Pragmática"
+      shipped:
+        subject: "Pedido enviado de la tienda Pragmática"
