@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+
+  web:
+    build: .
+    volumes:
+      - ./log:/home/app/depot/log
+    environment:
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+    ports:
+      - "3001:80"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:

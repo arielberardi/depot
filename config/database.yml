@@ -13,5 +13,6 @@ test:
 production:
   <<: *default
   database: depot_production
-  username: <%= ENV["DEPOT_DATABASE_USERNAME"] %>
-  password: <%= ENV["DEPOT_DATABASE_PASSWORD"] %>
+  host: db
+  username: postgres
+  password: password
