@@ -1,24 +1,7 @@
-# README
+# DEPOT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Book Store Catalog application made entirely in Rails 7 with usage of Hotwire
 
-Things you may want to cover:
+This was done as a coding along excercise of Part 2 of the book [Agile Web Development with Rails 7](https://pragprog.com/titles/rails7/agile-web-development-with-rails-7/)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Nice book, really recomended to start with Rails 7 and learn the new features in it.
